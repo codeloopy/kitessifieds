@@ -1,0 +1,57 @@
+
+<div class="columns is-multiline is-centered">
+  <div class="column is-1">
+  </div>
+  <div class="column is-6">
+    <%= image_tag(@kite.main_image, class: 'main-ad-image') %>
+  </div>
+  <div class="column is-4">
+  <!-- Start info Card -->
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-2">
+              <%= @kite.year %> <%= @kite.brand_name.titleize %>
+              <%= @kite.kite_type.titleize %>
+            </p>
+            <p class="title is-4">
+              $<%= number_with_precision(@kite.price, precision: 2) %>
+            </p>
+            <p class="subtitle is-4">
+              <strong>Size: </strong><%= size_formatter(@kite.classified_type, @kite.size) %>
+            </p>
+            <p class="subtitle is-4">
+              <strong><%= @kite.condition.titleize %></strong> Condition
+            </p>
+            <p class="subtitle is-4">
+              <strong>Location </strong><%= @kite.city %>, <%= @kite.country %>
+            </p>
+            <p class="subtitle is-4">
+              <strong>Size: </strong><%= size_formatter(@kite.classified_type, @kite.size) %>
+            </p>
+            <p class="ad-listed">
+              <time datetime="<%= @kite.created_at.to_date %>">Posted: <%= time_ago_in_words(@kite.created_at) %> ago</time>
+            </p>
+          </div>
+        </div>
+
+        <div class="content">
+          <p><%= @kite.description %></p>
+          <br>
+        </div>
+      </div>
+    </div>
+  <!-- END of info Card -->
+  </div>
+  <div class="column is-1">
+  </div>
+  
+</div>
+
+  <%#= @kite.zip %>
+
+<% if user_signed_in? && @kite.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_kite_path(@kite) %> |
+  <%= link_to 'Back', kites_path %>
+<% end %>

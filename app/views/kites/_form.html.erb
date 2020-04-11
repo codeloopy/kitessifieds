@@ -1,0 +1,77 @@
+<%= form_with(model: kite, local: true) do |form| %>
+  <% if kite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(kite.errors.count, "error") %> prohibited this kite from being saved:</h2>
+
+      <ul>
+        <% kite.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :classified_type, "Type" %>
+    <%= form.select(:classified_type, classified_type, {}, { :class => 'select' }) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :brand_name, "Brand Name" %>
+    <%= form.select(:brand_name, major_brands, {}, { :class => 'select' }) %>
+    <%#= form.select(:brand_name, major_brands, {}, { :class => 'select' }) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kite_type, "Model" %>
+    <%= form.text_field :kite_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.select(:year, (Time.zone.now.year + 1).downto(Time.zone.now.year - 20), {}, { :class => 'select' }) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size, "Size" %>
+    <%= form.text_field :size, placeholder: ' Just enter a number' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :condition %>
+    <%= form.select(:condition, kite_condition, {}, { :class => 'select' }) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price, "Price in US$" %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip %>
+    <%= form.text_field :zip %>
+  </div>
+
+  <div class="field">
+    <%= form.rich_text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :main_image %>
+    <%= form.file_field :main_image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

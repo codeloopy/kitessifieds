@@ -1,0 +1,20 @@
+// Place all the styles related to the kites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.card-content.top h2.model{
+  margin-top: -15px;
+  a {
+    color: hsl(0, 0%, 0%);
+  }
+}
+
+.ad-listed {
+  font-size: small;
+  color: hsl(217, 71%, 53%)
+}
+
+
+.main-ad-image {
+  width: 100%;
+}
