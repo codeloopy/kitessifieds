@@ -1,6 +1,6 @@
 class Kite < ApplicationRecord
   extend FriendlyId
-  friendly_id :kite_brand, use: :slugged
+  friendly_id :brand_name, use: :slugged
 
   belongs_to :user, dependent: :destroy
 
@@ -11,6 +11,19 @@ class Kite < ApplicationRecord
   before_save { kite_type.downcase! }
   before_save { country.downcase! }
   before_save { city.downcase! }
+
+  validates :classified_type, :presence => true
+  validates :brand_name, :presence => true
+  validates :kite_type, :presence => true
+  validates :year, :presence => true
+  validates :size, :presence => true
+  validates :condition, :presence => true
+  validates :price, :presence => true
+  validates :country, :presence => true
+  validates :city, :presence => true
+  validates :zip, :presence => true
+  validates :main_image, :presence => true
+  validates :description, :presence => true
 
   def self.search(search)
     if search
