@@ -3,7 +3,7 @@ class KitesController < ApplicationController
   before_action :set_kite, only: [:show, :edit, :update, :destroy]
 
   def index
-    @kites = Kite.search(params[:search])
+    @kites = Kite.search(params[:search]).order('created_at DESC')
     # @kites = Kite.all.order('created_at DESC')
   end
 
@@ -50,7 +50,7 @@ class KitesController < ApplicationController
   def destroy
     @kite.destroy
     respond_to do |format|
-      format.html { redirect_to kites_url, notice: 'Kite was successfully destroyed.' }
+      format.html { redirect_to kites_url, notice: 'Kite was successfully deleted.' }
     end
   end
 
