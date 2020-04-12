@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_164629) do
 
   create_table "kites", force: :cascade do |t|
     t.string "classified_type"
-    t.string "brand_name"
+    t.integer "brand_name"
     t.string "kite_type"
     t.integer "year"
     t.string "size"

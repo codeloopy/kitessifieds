@@ -7,7 +7,9 @@ class KitesController < ApplicationController
     # @kites = Kite.all.order('created_at DESC')
   end
 
-  def show; end
+  def show
+    @brand = Brand.find(@kite.brand_name)
+  end
 
   def new
     @kite = Kite.new
