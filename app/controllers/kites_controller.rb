@@ -4,7 +4,7 @@ class KitesController < ApplicationController
 
   def index
     @kites = Kite.search(params[:search]).order('created_at DESC')
-    # @kites = Kite.all.order('created_at DESC')
+    @brands = Brand.all
   end
 
   def show

@@ -1,9 +1,9 @@
 class Kite < ApplicationRecord
   extend FriendlyId
   friendly_id :brand_name, use: :slugged
+  
   has_one :brand, foreign_key: 'brand_id'
-
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   has_rich_text :description
   has_one_attached :main_image
