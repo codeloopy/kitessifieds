@@ -1,6 +1,6 @@
 class Kite < ApplicationRecord
   extend FriendlyId
-  friendly_id :brand_name, use: :slugged
+  friendly_id :custom_slug, use: :slugged
   
   has_one :brand, foreign_key: 'brand_id'
   belongs_to :user
@@ -20,6 +20,12 @@ class Kite < ApplicationRecord
   validates :zip, :presence => true
   validates :main_image, :presence => true
   validates :description, :presence => true
+
+  def custom_slug
+    [
+      [:year, :kite_type, :zip]
+    ]
+  end
 
   def self.search(search)
     if search
