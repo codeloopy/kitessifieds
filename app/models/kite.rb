@@ -2,7 +2,7 @@ class Kite < ApplicationRecord
   extend FriendlyId
   friendly_id :custom_slug, use: :slugged
   
-  has_one :brand, foreign_key: 'brand_id'
+  has_one :brand, class_name: 'Brand', foreign_key: 'brand_id'
   belongs_to :user
 
   has_rich_text :description
