@@ -21,8 +21,7 @@
         <span class='ad-listed'>Listed <%= time_ago_in_words(kite.created_at) %></span>
         <br>
         <% if user_signed_in? && kite.user_id == current_user.id %>
-          <%= link_to 'Edit', edit_kite_path(kite) %> | 
-          <%= link_to 'Destroy', kite, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "Edit #{kite.classified_type}", edit_kite_path(kite) %>
         <% end %>
       </div>
     </div>

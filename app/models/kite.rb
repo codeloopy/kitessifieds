@@ -3,7 +3,7 @@ class Kite < ApplicationRecord
   friendly_id :custom_slug, use: :slugged
   
   has_one :brand, class_name: 'Brand', foreign_key: 'brand_id'
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 
   has_rich_text :description
   has_one_attached :main_image

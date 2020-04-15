@@ -11,67 +11,92 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :classified_type, "Type" %>
-    <%= form.select(:classified_type, classified_type, {}, { :class => 'select' }) %>
+  
+  <div class="columns is-centered">
+    <div class="column">
+      <div class="field">
+        <%= form.label :condition, class: 'label' %>
+        <%= form.select :condition, kite_condition %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <%= form.label :year, class: 'label' %>
+        <%= form.select(:year, (Time.zone.now.year + 1).downto(Time.zone.now.year - 20), {}, { :class => 'select' }) %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <%= form.label :classified_type, "Type", class: 'label' %>
+        <%= form.select(:classified_type, classified_type, {}, { :class => 'select' }) %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <%= form.label :brand_name, "Brand Name", class: 'label' %>
+        <%= form.select(:brand_name, Brand.all.collect { |brand| [brand.brand_name, brand.id] }, {:class => 'select'}) %>
+        <%#= form.select(:brand_name, major_brands, {}, { :class => 'select' }) %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :brand_name, "Brand Name" %>
-    <%= form.select(:brand_name, Brand.all.collect { |brand| [brand.brand_name, brand.id] } ) %>
-    <%#= form.select(:brand_name, major_brands, {}, { :class => 'select' }) %>
+  <div class="columns is-centered">
+    <div class="column">
+      <div class="field">
+        <%= form.label :kite_type, "Model", class: 'label' %>
+        <%= form.text_field :kite_type %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <%= form.label :size, "Size", class: 'label' %>
+        <%= form.text_field :size, placeholder: ' Just enter a number' %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <%= form.label :price, "Price in US$", class: 'label' %>
+        <%= form.text_field :price %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :kite_type, "Model" %>
-    <%= form.text_field :kite_type %>
+  <div class="columns is-centered">
+    <div class="column">
+      <div class="field">
+        <%= form.label :country, class: 'label' %>
+        <%= form.text_field :country %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <%= form.label :city, class: 'label' %>
+        <%= form.text_field :city %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="field">
+        <%= form.label :zip, class: 'label' %>
+        <%= form.text_field :zip %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.select(:year, (Time.zone.now.year + 1).downto(Time.zone.now.year - 20), {}, { :class => 'select' }) %>
+  <div class="columns">
+    <div class="column">
+      <div class="field">
+        <%= form.rich_text_area :description, rows: 80 %>
+      </div>
+      <div class="field">
+        <%= form.label :main_image, class: 'label' %>
+        <%= form.file_field :main_image, class: 'button' %>
+      </div>
+      <div class="actions">
+        <%= form.submit "Place Ad", class: 'button is-success'  %>
+      </div>
+    </div>  
   </div>
+  
 
-  <div class="field">
-    <%= form.label :size, "Size" %>
-    <%= form.text_field :size, placeholder: ' Just enter a number' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :condition %>
-    <%= form.select :condition, kite_condition %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price, "Price in US$" %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zip %>
-    <%= form.text_field :zip %>
-  </div>
-
-  <div class="field">
-    <%= form.rich_text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :main_image %>
-    <%= form.file_field :main_image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    
 <% end %>
