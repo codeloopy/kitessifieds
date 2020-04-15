@@ -15,7 +15,7 @@
               <%= @kite.year %> <%= @brand.brand_name %>
               <%= @kite.kite_type.titleize %>
             </p>
-            <p class="title is-4">
+            <p class="subtitle is-4 price">
               $<%= number_with_precision(@kite.price, precision: 2) %>
             </p>
             <p class="subtitle is-4">
@@ -26,9 +26,6 @@
             </p>
             <p class="subtitle is-4">
               <strong>Location </strong><%= @kite.city %>, <%= @kite.country %>
-            </p>
-            <p class="subtitle is-4">
-              <strong>Size: </strong><%= size_formatter(@kite.classified_type, @kite.size) %>
             </p>
             <p class="ad-listed">
               <time datetime="<%= @kite.created_at.to_date %>">Posted: <%= time_ago_in_words(@kite.created_at) %> ago</time>
