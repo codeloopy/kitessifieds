@@ -14,7 +14,20 @@
  *= require_self
  */
  
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 @import "bulma";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #276CDA;
+  text-transform: uppercase;
+}
+
+
 
 $red_message: hsl(360, 80%, 50%);
 $green_message: hsl(100, 100%, 30%);
@@ -39,4 +52,8 @@ $placeholder_message: hsl(0, 0%, 75%);
 
 .message-alert-placeholder {
   background-color: $placeholder_message;
+}
+
+.forgot-password-image {
+  fill: red;
 }
