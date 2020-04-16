@@ -1,6 +1,7 @@
 module ApplicationHelper
-  def temp_username
-    current_user.email.split('@')[0]
+  def username(user)
+    return current_user.email.split('@')[0] if user.empty?
+    user
   end
 
   # Resize images
