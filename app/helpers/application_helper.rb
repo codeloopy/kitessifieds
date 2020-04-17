@@ -4,13 +4,11 @@ module ApplicationHelper
     user
   end
 
-  # Resize images
-  # def small_image()
-  # end
-
-  # def medium_image()
-  # end
-
-  # def large_image()
-  # end
+  def user_avatar(user, size=400)
+    if user.avatar.attached?
+      user.avatar.variant(resize: "#{size}x#{size}!")
+    else
+      'kitessifieds-user-icon.svg'
+    end
+  end
 end

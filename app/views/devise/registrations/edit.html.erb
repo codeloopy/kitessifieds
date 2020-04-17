@@ -2,9 +2,8 @@
   <div class="columns">
     <div class="card">
       <div class="card-image">
-        <figure class="image is-4by3 forgot-password-image">
-          <!-- insert avatar picture below -->
-          <%= image_tag('forgot-password-icon.svg', alt: 'reset-password-icon') %>
+        <figure class="image is-4by4 forgot-password-image">
+          <%= image_tag(user_avatar(resource)) %>
         </figure>
       </div>
       <div class="card-content">
@@ -27,6 +26,11 @@
             <div class="field">
               <%= f.label :username %><br />
               <%= f.text_field :username %>
+            </div>
+
+            <div class="field">
+              <%= f.label :avatar %><br />
+              <%= f.file_field :avatar %>
             </div>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
