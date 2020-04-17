@@ -2,14 +2,14 @@ class Kite < ApplicationRecord
   extend FriendlyId
   friendly_id :custom_slug, use: :slugged
   
-  has_one :brand, class_name: 'Brand', foreign_key: 'brand_id'
+  belongs_to :brand, class_name: 'Brand', foreign_key: 'brand_id'
   belongs_to :user, dependent: :destroy
 
   has_rich_text :description
   has_one_attached :main_image
 
   validates :classified_type, :presence => true
-  validates :brand_name, :presence => true
+  validates :brand_id, :presence => true
   validates :kite_type, :presence => true
   validates :year, :presence => true
   validates :size, :presence => true

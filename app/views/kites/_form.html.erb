@@ -33,8 +33,8 @@
     </div>
     <div class="column">
       <div class="field">
-        <%= form.label :brand_name, "Brand Name", class: 'label' %>
-        <%= form.select(:brand_name, Brand.all.collect { |brand| [brand.brand_name, brand.id] }, {:class => 'select'}) %>
+        <%= form.label :brand_id, "Brand Name", class: 'label' %>
+        <%= form.select(:brand_id, Brand.all.collect { |brand| [brand.brand_name, brand.id] }, {:class => 'select'}) %>
         <%#= form.select(:brand_name, major_brands, {}, { :class => 'select' }) %>
       </div>
     </div>

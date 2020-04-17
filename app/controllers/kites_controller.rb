@@ -8,7 +8,7 @@ class KitesController < ApplicationController
   end
 
   def show
-    @brand = Brand.find(@kite.brand_name)
+    # @brand = Brand.find(@kite.brand_name)
   end
 
   def new
@@ -64,7 +64,6 @@ class KitesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def kite_params
       params.require(:kite).permit(:classified_type,
-                                   :brand_name,
                                    :kite_type,
                                    :year,
                                    :size,
@@ -76,6 +75,7 @@ class KitesController < ApplicationController
                                    :description,
                                    :main_image,
                                    :user_id,
+                                   :brand_id,
                                    :search)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_213451) do
+ActiveRecord::Schema.define(version: 2020_04_17_032249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2020_04_16_213451) do
 
   create_table "kites", force: :cascade do |t|
     t.string "classified_type"
-    t.integer "brand_name"
     t.string "kite_type"
     t.integer "year"
     t.string "size"
@@ -78,6 +77,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_213451) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.string "slug"
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_kites_on_brand_id"
     t.index ["slug"], name: "index_kites_on_slug", unique: true
     t.index ["user_id"], name: "index_kites_on_user_id"
   end
@@ -98,5 +99,6 @@ ActiveRecord::Schema.define(version: 2020_04_16_213451) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "kites", "brands"
   add_foreign_key "kites", "users"
 end
