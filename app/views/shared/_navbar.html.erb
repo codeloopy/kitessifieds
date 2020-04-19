@@ -18,15 +18,9 @@
         About
       </a>
       <div class="navbar-item">
-        <%= form_tag kites_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search.downcase], class: 'input', placeholder: 'Enter: Brand, Model, Year, Size, Price or Zipcode' %>
-          <%#= submit_tag("Search", :name => nil) %>
-        <% end %>
+        
+        <!-- Search Form -->
       </div>
-      <!--
-      <a class="navbar-item">
-        <input class="input" type="text" placeholder="Search">  
-      </a> -->
     </div>
 
     <div class="navbar-end">

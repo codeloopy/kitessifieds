@@ -3,13 +3,10 @@ class KitesController < ApplicationController
   before_action :set_kite, only: [:show, :edit, :update, :destroy]
 
   def index
-    @kites = Kite.search(params[:search]).order('created_at DESC')
-    @brands = Brand.all
+    @kites = Kite.all.order('created_at DESC')
   end
 
-  def show
-    # @brand = Brand.find(@kite.brand_name)
-  end
+  def show; end
 
   def new
     @kite = Kite.new
@@ -75,7 +72,6 @@ class KitesController < ApplicationController
                                    :description,
                                    :main_image,
                                    :user_id,
-                                   :brand_id,
-                                   :search)
+                                   :brand_id)
     end
 end
