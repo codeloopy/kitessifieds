@@ -12,7 +12,10 @@
         <% if signed_in? %>
           <%= link_to 'Contact', '#', class: 'control button is-small is-fullwidth is-info is-link' %>
         <% else %>
-          <p class="subtitle is-6"><%= link_to 'Log In', '#' %> or <%= link_to 'Sign Up', '#' %><br>to contact me</p>
+          <p class="subtitle is-6">
+            <%= link_to 'Log In', new_user_session_path %>
+             or <%= link_to 'Sign Up', new_user_registration_path %><br>to contact me
+          </p>
         <% end %>
       </div>
     </div>
