@@ -1,0 +1,29 @@
+<!-- USER info -->
+<div class="card has-background-white-bis	 seller-info">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-60x60">
+          <%= image_tag(user_avatar(@kite.user, 100), class: 'avatar-show') %>
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4"><%= my_username(@kite.user) %></p>
+        <% if signed_in? %>
+          <%= link_to 'Contact', '#', class: 'control button is-small is-fullwidth is-info is-link' %>
+        <% else %>
+          <p class="subtitle is-6"><%= link_to 'Log In', '#' %> or <%= link_to 'Sign Up', '#' %><br>to contact me</p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="content">
+      <p>Some stats about the seller</p>
+      <ul>
+        <li>Located: <%= link_to @kite.city, '#' %></li>
+        <li><%= link_to 'Other items listed by me', '#' %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- end of USER info -->
