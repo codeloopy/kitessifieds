@@ -23,3 +23,20 @@ p.price {
   font-weight: bolder;
   color: hsl(217, 71%, 53%);
 }
+
+.avatar-show {
+  border-radius: 50%;
+  margin: 0;
+}
+
+.seller-info {
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+      margin-left: 0;
+    }
+  }
+
+}
