@@ -30,6 +30,7 @@ gem 'bulma-rails', '~> 0.8.0'
 gem 'devise'
 gem 'friendly_id', '~> 5.2.4'
 gem 'aws-sdk-s3', require: false
+gem 'impressionist'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -50,3 +51,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
