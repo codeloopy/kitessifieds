@@ -23,7 +23,7 @@
 
       <div class="content">
         <span class='ad-listed'>Listed <%= time_ago_in_words(kite.created_at) %>
-        and seen <%= pluralize(kite.impressionist_count , 'time')%>
+        and seen <%= pluralize(kite.impressionist_count(:filter=>:ip_address) , 'time')%>
         </span>
         <br>
         <% if user_signed_in? && kite.user_id == current_user.id %>
