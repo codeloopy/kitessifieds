@@ -1,7 +1,9 @@
 class Kite < ApplicationRecord
   extend FriendlyId
+  is_impressionable
+
   friendly_id :custom_slug, use: :slugged
-  
+
   belongs_to :brand, class_name: 'Brand', foreign_key: 'brand_id'
   belongs_to :user, dependent: :destroy
 

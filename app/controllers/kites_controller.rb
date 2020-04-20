@@ -1,12 +1,15 @@
 class KitesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_kite, only: [:show, :edit, :update, :destroy]
+  impressionist :actions=>[:index, :show]
 
   def index
     @kites = Kite.all.order('created_at DESC')
   end
 
-  def show; end
+  def show
+    impressionist(@kite)
+  end
 
   def new
     @kite = Kite.new

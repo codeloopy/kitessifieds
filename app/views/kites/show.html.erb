@@ -28,6 +28,9 @@
             <p class="ad-listed">
               <time datetime="<%= @kite.created_at.to_date %>">Posted: <%= time_ago_in_words(@kite.created_at) %> ago</time>
             </p>
+            <p class="ad-listed">
+              <%= @kite.impressionist_count %> unique views
+            </p>
           </div>
         </div>
 
