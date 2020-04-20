@@ -1,10 +1,14 @@
 module ApplicationHelper
-  def username(user)
-    return current_user.email.split('@')[0] if user.empty?
-    user
+
+  def my_username(user)
+    if user.username.empty?
+      user.email.split('@')[0]
+    else
+      user.username
+    end
   end
 
-  def user_avatar(user, size=400)
+  def user_avatar(user, size = 400)
     if user.avatar.attached?
       user.avatar.variant(resize: "#{size}x#{size}!")
     else
