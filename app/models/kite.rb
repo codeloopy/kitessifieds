@@ -8,7 +8,7 @@ class Kite < ApplicationRecord
   belongs_to :user, dependent: :destroy
 
   has_rich_text :description
-  has_one_attached :main_image
+  has_many_attached :images
 
   validates :classified_type, :presence => true
   validates :brand_id, :presence => true
@@ -20,7 +20,7 @@ class Kite < ApplicationRecord
   validates :country, :presence => true
   validates :city, :presence => true
   validates :zip, :presence => true
-  validates :main_image, :presence => true
+  validates :images, :presence => true
   validates :description, :presence => true
 
   def custom_slug

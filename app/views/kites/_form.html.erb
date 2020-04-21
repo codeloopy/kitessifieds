@@ -88,8 +88,8 @@
         <%= form.rich_text_area :description, rows: 80 %>
       </div>
       <div class="field">
-        <%= form.label :main_image, class: 'label' %>
-        <%= form.file_field :main_image, class: 'button' %>
+        <%= form.label :images, class: 'label' %>
+        <%= form.file_field :images, multiple: true, class: 'button image-uploader' %>
       </div>
       <div class="actions">
         <%= form.submit "Place Ad", class: 'button is-success'  %>

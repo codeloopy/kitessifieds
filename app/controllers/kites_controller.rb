@@ -58,7 +58,6 @@ class KitesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_kite
       @kite = Kite.friendly.find(params[:id])
-      # @kite = Kite.find(params)
     end
 
     # Only allow a list of trusted parameters through.
@@ -73,8 +72,8 @@ class KitesController < ApplicationController
                                    :city,
                                    :zip,
                                    :description,
-                                   :main_image,
                                    :user_id,
-                                   :brand_id)
+                                   :brand_id,
+                                   images:[])
     end
 end
