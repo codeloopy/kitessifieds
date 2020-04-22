@@ -1,12 +1,10 @@
 
 <div class="columns is-multiline is-centered">
+
   <div class="column is-6">
-    <div class="carousel">
-      <% @kite.images.each do |image| %>
-        <div><%= image_tag(image, class: 'main-ad-image') %></div>
-      <% end %>
-    </div>
+    <%= render 'carousel' %>
   </div>
+  
   <div class="column is-6">
   <!-- Start info Card -->
     <div class="card">
@@ -14,7 +12,7 @@
         <div class="media">
           <div class="media-content">
             <p class="title is-2">
-              <%= @kite.year %> <%= @kite.brand.brand_name %>
+              <%= @kite.year %> <%= @kite.brand.brand_name %><br>
               <%= @kite.kite_type.titleize %>
             </p>
             <p class="subtitle is-4 price">
