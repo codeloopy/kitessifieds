@@ -1,9 +1,11 @@
 
 <div class="columns is-multiline is-centered">
   <div class="column is-6">
-    <% @kite.images.each do |image| %>
-      <%= image_tag(image, class: 'main-ad-image') %>
-    <% end %>
+    <div class="carousel">
+      <% @kite.images.each do |image| %>
+        <div><%= image_tag(image, class: 'main-ad-image') %></div>
+      <% end %>
+    </div>
   </div>
   <div class="column is-6">
   <!-- Start info Card -->

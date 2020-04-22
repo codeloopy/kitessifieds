@@ -10,9 +10,11 @@
   </head>
 
   <body>
+    <header>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/notices' %>
+    </header>
     
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/notices' %>
     <section class="section">
       <%= yield %>
     </section>
