@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+
 brands = [
   'AXIS',
   'Advance',
@@ -111,3 +112,37 @@ brands = [
 ]
 
 brands.each { |brand| Brand.create!(brand_name: brand) }
+
+
+# type = [
+#   'Kite',
+#   'Control Bar',
+#   'Board TT',
+#   'Surf Board',
+#   'Foils',
+#   'Harness',
+#   'Straps',
+#   'Water apparel',
+#   'All Other'
+# ]
+
+
+# 3000.times do |x|
+#   ad = Kite.new(
+#     classified_type: type[rand(0...type.count)],
+#     kite_type: 'Model of the item',
+#     year: 2020,
+#     size: 'size',
+#     condition: 'A',
+#     price: 100.20,
+#     country: 'United States',
+#     city: 'City',
+#     zip: '33333',
+#     user_id: 1,
+#     brand_id: rand(1..100),
+#     description: 'blah blah blah'
+#   )
+
+#   ad.images.attach(io: File.open(Rails.root.join('public/450x450.png')), filename: '450x450.png')
+#   ad.save
+# end

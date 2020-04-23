@@ -4,7 +4,7 @@ class KitesController < ApplicationController
   impressionist :actions=>[:show]
 
   def index
-    @kites = Kite.all.order('created_at DESC')
+    @kites = Kite.paginate(page: params[:page], per_page: 20).order('created_at DESC')
   end
 
   def show

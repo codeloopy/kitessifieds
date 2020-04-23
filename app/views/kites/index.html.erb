@@ -1,3 +1,7 @@
-<div class="columns is-multiline">
+<section class="columns is-multiline">
   <%= render @kites %>
-</div>
+</section>
+
+<section class='pagination-section'>
+  <%= will_paginate @kites, class: 'pagination' %>
+</section>
