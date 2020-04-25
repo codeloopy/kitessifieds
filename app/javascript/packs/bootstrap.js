@@ -1,48 +1,94 @@
-/*!
- * Generated using the Bootstrap Customizer (https://getbootstrap.com/docs/3.4/customize/)
- */
-
-/*!
- * Bootstrap v3.4.1 (https://getbootstrap.com/)
- * Copyright 2011-2020 Twitter, Inc.
- * Licensed under the MIT license
- */
-
-if (typeof jQuery === 'undefined') {
-  throw new Error('Bootstrap\'s JavaScript requires jQuery')
-}
-+function ($) {
-  'use strict';
-  var version = $.fn.jquery.split(' ')[0].split('.')
-  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] > 3)) {
-    throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher, but lower than version 4')
-  }
-}(jQuery);
-
 /* ========================================================================
- * Bootstrap: carousel.js v3.4.1
- * https://getbootstrap.com/docs/3.4/javascript/#carousel
+ * Bootstrap: transition.js v3.3.5
+ * https://getbootstrap.com/javascript/#transitions
  * ========================================================================
- * Copyright 2011-2019 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
 
-+function ($) {
++ function ($) {
+  'use strict';
+
+  // CSS TRANSITION SUPPORT (Shoutout: https://www.modernizr.com/)
+  // ============================================================
+
+  function transitionEnd() {
+    var el = document.createElement('bootstrap')
+
+    var transEndEventNames = {
+      WebkitTransition: 'webkitTransitionEnd',
+      MozTransition: 'transitionend',
+      OTransition: 'oTransitionEnd otransitionend',
+      transition: 'transitionend'
+    }
+
+    for (var name in transEndEventNames) {
+      if (el.style[name] !== undefined) {
+        return {
+          end: transEndEventNames[name]
+        }
+      }
+    }
+
+    return false // explicit for ie8 (  ._.)
+  }
+
+  // http://blog.alexmaccaw.com/css-transitions
+  $.fn.emulateTransitionEnd = function (duration) {
+    var called = false
+    var $el = this
+    $(this).one('bsTransitionEnd', function () {
+      called = true
+    })
+    var callback = function () {
+      if (!called) $($el).trigger($.support.transition.end)
+    }
+    setTimeout(callback, duration)
+    return this
+  }
+
+  $(function () {
+    $.support.transition = transitionEnd()
+
+    if (!$.support.transition) return
+
+    $.event.special.bsTransitionEnd = {
+      bindType: $.support.transition.end,
+      delegateType: $.support.transition.end,
+      handle: function (e) {
+        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
+      }
+    }
+  })
+
+}(jQuery);
+
+/* ========================================================================
+ * Bootstrap: carousel.js v3.3.5
+ * https://getbootstrap.com/javascript/#carousel
+ * ========================================================================
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++
+function ($) {
   'use strict';
 
   // CAROUSEL CLASS DEFINITION
   // =========================
 
   var Carousel = function (element, options) {
-    this.$element    = $(element)
+    this.$element = $(element)
     this.$indicators = this.$element.find('.carousel-indicators')
-    this.options     = options
-    this.paused      = null
-    this.sliding     = null
-    this.interval    = null
-    this.$active     = null
-    this.$items      = null
+    this.options = options
+    this.paused = null
+    this.sliding = null
+    this.interval = null
+    this.$active = null
+    this.$items = null
 
     this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this))
 
@@ -51,7 +97,7 @@ if (typeof jQuery === 'undefined') {
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
   }
 
-  Carousel.VERSION  = '3.4.1'
+  Carousel.VERSION = '3.3.5'
 
   Carousel.TRANSITION_DURATION = 600
 
@@ -65,9 +111,14 @@ if (typeof jQuery === 'undefined') {
   Carousel.prototype.keydown = function (e) {
     if (/input|textarea/i.test(e.target.tagName)) return
     switch (e.which) {
-      case 37: this.prev(); break
-      case 39: this.next(); break
-      default: return
+      case 37:
+        this.prev();
+        break
+      case 39:
+        this.next();
+        break
+      default:
+        return
     }
 
     e.preventDefault()
@@ -78,9 +129,9 @@ if (typeof jQuery === 'undefined') {
 
     this.interval && clearInterval(this.interval)
 
-    this.options.interval
-      && !this.paused
-      && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
+    this.options.interval &&
+      !this.paused &&
+      (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
 
     return this
   }
@@ -92,8 +143,8 @@ if (typeof jQuery === 'undefined') {
 
   Carousel.prototype.getItemForDirection = function (direction, active) {
     var activeIndex = this.getItemIndex(active)
-    var willWrap = (direction == 'prev' && activeIndex === 0)
-                || (direction == 'next' && activeIndex == (this.$items.length - 1))
+    var willWrap = (direction == 'prev' && activeIndex === 0) ||
+      (direction == 'next' && activeIndex == (this.$items.length - 1))
     if (willWrap && !this.options.wrap) return active
     var delta = direction == 'prev' ? -1 : 1
     var itemIndex = (activeIndex + delta) % this.$items.length
@@ -101,12 +152,14 @@ if (typeof jQuery === 'undefined') {
   }
 
   Carousel.prototype.to = function (pos) {
-    var that        = this
+    var that = this
     var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))
 
     if (pos > (this.$items.length - 1) || pos < 0) return
 
-    if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) }) // yes, "slid"
+    if (this.sliding) return this.$element.one('slid.bs.carousel', function () {
+      that.to(pos)
+    }) // yes, "slid"
     if (activeIndex == pos) return this.pause().cycle()
 
     return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos))
@@ -136,11 +189,11 @@ if (typeof jQuery === 'undefined') {
   }
 
   Carousel.prototype.slide = function (type, next) {
-    var $active   = this.$element.find('.item.active')
-    var $next     = next || this.getItemForDirection(type, $active)
+    var $active = this.$element.find('.item.active')
+    var $next = next || this.getItemForDirection(type, $active)
     var isCycling = this.interval
     var direction = type == 'next' ? 'left' : 'right'
-    var that      = this
+    var that = this
 
     if ($next.hasClass('active')) return (this.sliding = false)
 
@@ -162,12 +215,13 @@ if (typeof jQuery === 'undefined') {
       $nextIndicator && $nextIndicator.addClass('active')
     }
 
-    var slidEvent = $.Event('slid.bs.carousel', { relatedTarget: relatedTarget, direction: direction }) // yes, "slid"
+    var slidEvent = $.Event('slid.bs.carousel', {
+      relatedTarget: relatedTarget,
+      direction: direction
+    }) // yes, "slid"
     if ($.support.transition && this.$element.hasClass('slide')) {
       $next.addClass(type)
-      if (typeof $next === 'object' && $next.length) {
-        $next[0].offsetWidth // force reflow
-      }
+      $next[0].offsetWidth // force reflow
       $active.addClass(direction)
       $next.addClass(direction)
       $active
@@ -198,10 +252,10 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option) {
     return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.carousel')
+      var $this = $(this)
+      var data = $this.data('bs.carousel')
       var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option)
-      var action  = typeof option == 'string' ? option : options.slide
+      var action = typeof option == 'string' ? option : options.slide
 
       if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))
       if (typeof option == 'number') data.to(option)
@@ -212,7 +266,7 @@ if (typeof jQuery === 'undefined') {
 
   var old = $.fn.carousel
 
-  $.fn.carousel             = Plugin
+  $.fn.carousel = Plugin
   $.fn.carousel.Constructor = Carousel
 
 
@@ -229,17 +283,10 @@ if (typeof jQuery === 'undefined') {
   // =================
 
   var clickHandler = function (e) {
-    var $this   = $(this)
-    var href    = $this.attr('href')
-    if (href) {
-      href = href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
-    }
-
-    var target  = $this.attr('data-target') || href
-    var $target = $(document).find(target)
-
+    var href
+    var $this = $(this)
+    var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) // strip for ie7
     if (!$target.hasClass('carousel')) return
-
     var options = $.extend({}, $target.data(), $this.data())
     var slideIndex = $this.attr('data-slide-to')
     if (slideIndex) options.interval = false
@@ -265,3 +312,9 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
+
+
+
+$('.carousel').carousel({
+  interval: 0
+});

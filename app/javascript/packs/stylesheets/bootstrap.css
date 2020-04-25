@@ -1,3 +1,8 @@
+.subtitle.is-4 {
+  color: purple !important;
+}
+
+
 /*!
  * Generated using the Bootstrap Customizer (https://getbootstrap.com/docs/3.4/customize/)
  */
@@ -7,7 +12,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-html {
+
+/* html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -237,7 +243,8 @@ a:focus {
 }
 figure {
   margin: 0;
-}
+} */
+
 img {
   vertical-align: middle;
 }
