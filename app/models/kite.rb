@@ -20,7 +20,10 @@ class Kite < ApplicationRecord
   validates :country, :presence => true
   validates :city, :presence => true
   validates :zip, :presence => true
-  validates :images, :presence => true
+  validates :images, attached: true,
+                     content_type: ['image/png', 'image/jpeg', 'image/jpg'],
+                     size: { less_than: 2.megabytes, message: ' is too big' },
+                     limit: { min: 1, max: 8 }
   validates :description, :presence => true
 
   def custom_slug
