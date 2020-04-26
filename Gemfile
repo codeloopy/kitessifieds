@@ -32,7 +32,7 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'aws-sdk-s3', require: false
 gem 'impressionist'
 gem 'will_paginate', '~> 3.1.0'
-
+gem 'active_storage_validations'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
