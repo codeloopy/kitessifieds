@@ -232,24 +232,29 @@ module KitesHelper
 
   def size_formatter(type, size)
     case type
-    when classified_type[0]
+    when classified_type[0].first
       "#{size}m"
-    when classified_type[1]
-      "#{size} inches"
-    when classified_type[2]
+    when classified_type[1].first
+      "#{size} Inches"
+    when classified_type[2].first
       "#{size}cm"
-    when classified_type[3]
-      "#{size} feet"
-    when classified_type[4]
+    when classified_type[3].first
+      surfboard_size_formatter(size)
+    when classified_type[4].first
       "#{size}cm"
-    when classified_type[5]
+    when classified_type[5].first
+      size.upcase
+    when classified_type[6].first
       size
-    when classified_type[6]
-      size
-    when classified_type[7]
-      size
+    when classified_type[7].first
+      size.upcase
     else
       size
     end
+  end
+
+  def surfboard_size_formatter(size)
+    new_size = size.split(' ').join("'") + '"'
+    new_size
   end
 end
