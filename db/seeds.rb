@@ -108,7 +108,8 @@ brands = [
   'Spleene',
   'Spotz',
   'Takoon',
-  'Tona'
+  'Tona',
+  'Star Kites'
 ]
 
 brands.each { |brand| Brand.create!(brand_name: brand) }

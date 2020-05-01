@@ -48,6 +48,7 @@ class KitesController < ApplicationController
   end
 
   def destroy
+    @kite.images.purge
     @kite.destroy
     respond_to do |format|
       format.html { redirect_to kites_url, notice: 'Kite was successfully deleted.' }
@@ -74,6 +75,6 @@ class KitesController < ApplicationController
                                    :description,
                                    :user_id,
                                    :brand_id,
-                                   images:[])
+                                   images: [])
     end
 end

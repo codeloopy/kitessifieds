@@ -5,10 +5,10 @@ class Kite < ApplicationRecord
   friendly_id :custom_slug, use: :slugged
 
   belongs_to :brand, class_name: 'Brand', foreign_key: 'brand_id'
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   has_rich_text :description
-  has_many_attached :images
+  has_many_attached :images, dependent: :destroy
 
   validates :classified_type, :presence => true
   validates :brand_id, :presence => true
