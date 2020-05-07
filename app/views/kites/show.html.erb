@@ -1,11 +1,9 @@
 <div class="columns is-multiline is-centered">
-
   <div class="column is-6">
     <%= render 'carousel' %>
   </div>
-  
   <div class="column is-6">
-  <!-- Start info Card -->
+    <!-- Start info Card -->
     <div class="card">
       <div class="card-content">
         <div class="media">
@@ -34,21 +32,16 @@
             </p>
           </div>
         </div>
-
         <div class="content">
           <p><%= @kite.description %></p>
-
           <%= render 'user_contact_card' %>
-          
-
           <div class="field is-grouped">
             <%= render 'shared/edit_menus' %>
           </div>
         </div>
         <%= link_to 'Back', kites_path, class: 'control button is-small is-fullwidth is-outlined is-link' %>
       </div>
-
     </div>
-  <!-- END of info Card -->
+    <!-- END of info Card -->
   </div>
 </div>

@@ -257,4 +257,12 @@ module KitesHelper
     new_size = size.split(' ').join("'") + '"'
     new_size
   end
+
+  def dashboard_for_users
+    if current_user.admin
+      redirect_to admindash_path
+    else
+      redirect_to userdash_path
+    end
+  end
 end
