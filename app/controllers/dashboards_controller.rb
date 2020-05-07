@@ -4,6 +4,7 @@ class DashboardsController < ApplicationController
   before_action :find_user, only: [:userdash, :admindash]
 
   def userdash
+    @kites = Kite.where(user_id: current_user)
   end
 
   def admindash
