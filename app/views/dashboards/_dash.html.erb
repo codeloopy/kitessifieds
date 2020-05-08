@@ -1,0 +1,143 @@
+<div class="container">
+  <div class="columns">
+    <div class="column">
+
+      <section class="hero is-link welcome is-small">
+        <div class="hero-body">
+          <div class="container">
+            <div class="columns">
+              <div class="column is-2">
+                <figure class="image">
+                  <%= image_tag @user.avatar %>
+                </figure>
+              </div>
+              <div class="column is-10">
+                <h1 class="title">
+                  Hello, <%= @user.username %>
+                </h1>
+                <h2 class="subtitle">
+                  I hope you had a sick sesh today!
+                </h2>
+                <%= link_to 'Looking for something', root_path, class: 'button is-white is-outlined' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-tiles">
+        <div class="tile is-ancestor has-text-centered">
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title"><%= @user.kites.count %></p>
+              <p class="subtitle">Items for sale</p>
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child box">
+              <p class="title">0</p>
+              <p class="subtitle">Messages</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="columns">
+
+        <div class="column is-6">
+          <div class="card events-card">
+            <header class="card-header">
+              <p class="card-header-title">
+                Your gear for sale
+              </p>                
+            </header>
+
+            <div class="card-table">
+              <div class="content">
+                <table class="table is-fullwidth is-striped">
+                  <tbody>
+										<% if @kites.empty? %>
+											<tr>
+												<td>Nothing to display, sell some shit!</td>
+												<td class="level-right">
+													<%= link_to 'Place an Ad', new_kite_path, class: "button is-small is-link" %>
+												</td>
+											</tr>
+										<% end %>
+									
+										<% @user.kites.each do |kite| %>
+											<tr>
+												<td width="5%"><i class="fa fa-check-circle"></i></td>
+												<td><%= link_to "#{kite.year} #{kite.kite_type}", kite_path(kite) %></td>
+												<td><%#= kite.year %> <%#= kite.kite_type %></td>
+												<td class="level-right">
+                          <div class="buttons has-addons">
+                            <%#= link_to 'View Ad', kite_path(kite), class: 'control button is-small' %> 
+                            <%= link_to 'Edit Ad', edit_kite_path(kite), class: 'control button is-small is-link' %> 
+                            <%= link_to 'SOLD', '#', class: 'control button is-small is-link is-success', data: { confirm: 'Congrats! We\'ll archive this Ad for you, minus the pics.' } %> 
+                            <%= link_to 'Delete Ad', @kite, method: :delete, data: { confirm: 'Are you sure you\'d like to delete this ad?' }, class: 'control button is-small is-danger' %>
+                          </div>
+                        </td>
+											</tr>
+										<% end%>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="column is-6">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                Messages
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-large" type="text" placeholder="">
+                  <span class="icon is-medium is-left">
+                    <i class="fa fa-search"></i>
+                  </span>
+                  <span class="icon is-medium is-right">
+                    <i class="fa fa-check"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!-- metrics area -->
+  <div class="columns">
+    <div class="column is-12">
+      <div class="card events-card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Metrics - Coming soon
+          </p>                
+        </header>
+
+        <div class="card-table">
+          <div class="content">
+            <table class="table is-fullwidth is-striped">
+              <tbody>
+                <tr>
+                  <td>Nothing to display</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
