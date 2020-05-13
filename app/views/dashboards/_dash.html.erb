@@ -13,12 +13,15 @@
               </div>
               <div class="column is-10">
                 <h1 class="title">
-                  Hello, <%= @user.username %>
+                  Hello, <%= my_username(@user) %>
                 </h1>
                 <h2 class="subtitle">
                   I hope you had a sick sesh today!
                 </h2>
                 <%= link_to 'Looking for something', root_path, class: 'button is-white is-outlined' %>
+                <% if !@user.avatar.nil? %>
+                  <%= link_to "Hey! #{ my_username(current_user) } you should add a profile pic", edit_user_registration_path %>
+                <% end %>
               </div>
             </div>
           </div>
