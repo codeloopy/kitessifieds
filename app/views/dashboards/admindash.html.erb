@@ -47,17 +47,17 @@
           <div class="card events-card">
             <header class="card-header">
               <p class="card-header-title">
-                USERS
+                NEWEST USERS
               </p>
             </header>
             <div class="card-table">
               <div class="content">
                 <table class="table is-fullwidth is-striped">
                   <tbody>
-                  <% @users.each do |user| %>
+                  <% @newest_users.each do |user| %>
                     <tr>
                       <td width="5%"><i class="fa fa-user"></i></td>
-                      <td><%= "#{my_username(user)}: #{user.email}" %></td>
+                      <td><%= "#{my_username(user)}: #{user.email} Signed up: #{time_ago_in_words(user.created_at)}" %></td>
                       <td class="level-right">
                       <%= link_to "Delete User", '#', class: 'button is-small is-danger' %>
                       </td>
@@ -72,17 +72,17 @@
           <div class="card events-card">
             <header class="card-header">
               <p class="card-header-title">
-                ITEMS
+                LATEST ITEMS
               </p>
             </header>
             <div class="card-table">
               <div class="content">
                 <table class="table is-fullwidth is-striped">
                   <tbody>
-                  <% @kites.each do |kite| %>
+                  <% @latest_items.each do |item| %>
                     <tr>
                       <td width="5%"><i class="fa fa-user"></i></td>
-                      <td><%= "#{kite.id}: #{kite.year} #{kite.brand.brand_name} #{}" %></td>
+                      <td><%= "#{item.id}: #{item.year} #{item.brand.brand_name} #{time_ago_in_words(item.created_at)}" %></td>
                       <td class="level-right">
                       <%= link_to "Suspend Ad", '#', class: 'button is-small is-warning' %>
                       <%= link_to "Delete Ad", '#', class: 'button is-small is-danger' %>

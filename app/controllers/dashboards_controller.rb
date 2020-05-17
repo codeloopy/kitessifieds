@@ -11,6 +11,8 @@ class DashboardsController < ApplicationController
 
   def admindash
     @kites = Kite.all
+    @newest_users = User.last(10).reverse
+    @latest_items = Kite.last(10).reverse
   end
 
   private
@@ -21,7 +23,6 @@ class DashboardsController < ApplicationController
 
     def find_all_users
       @users = User.all
-
     end
 
     def only_admin_dash
