@@ -69,5 +69,4 @@ Rails.application.configure do
   # run rails s -b 0.0.0.0
   # then
   # run from home dir --->    ./ngrok http 3000
-
 end
