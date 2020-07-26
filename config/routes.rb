@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :kites
-  root 'kites#index'
+  root 'pages#index'
 
   get '/user' => "dashboards#userdash", :as => :user_root
 end

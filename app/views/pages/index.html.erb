@@ -1,2 +1,71 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<section class="hero" id="hero">
+  <div class="background-image"></div>
+  <div class="hero-content">
+    <h1>Kitessifieds</h1>
+    <h3>Trust sellers as much as the gear</h3>
+    <%= link_to "Sign Up Now!", new_user_registration_path, class: 'signup-btn button is-link' %>
+    <%# <a href="#contact" class="btn">Sign Up Now</a> %>
+  </div>
+</section>
+
+
+<section class="sample">
+  <h3 class="title">What our platform is shaping to look like</h3>
+  <div class="line"></div>
+  <p><span>Nervous about a recent buy?</span><br>With user reviews, score and publix transaction history you can rest assured that half the homework is done for you.</p>
+  <img src=<%= asset_path('300x450_placeholder.jpg')%> alt="">
+  <p><span>Avoid scams</span><br>We are putting in place some serious logic behind our app to minimize 'legit emails' from a Nigerian price wanting to buy or sell you some gear.</p>
+  <img src=<%= asset_path('300x450_placeholder.jpg')%> alt="">
+  <p><span>Real-Time Messaging</span><br>We are implementing a secure 2-way chat communication with the buyer/seller which you can use as a realtime chatting tool or simply to exchange messages.</p>
+  <img src=<%= asset_path('300x450_placeholder.jpg')%> alt="">
+  <p><span>SEO Friendly</span><br>Every aspect of your post has been thought of carefully to maxime the likelyhood of a successful transaction.</p>
+  <img src=<%= asset_path('300x450_placeholder.jpg')%> alt="">
+  <p><span>And many more features</span><br>Have an idea for a feature? <%= link_to 'drop us a line'%></p>
+</section>
+
+<section class="about" id="about">
+  <h3 class="title">What we're all about</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</section>
+
+<section class="latest_ads" id="latest_ads">
+  <h3 class="title">Latest Ads</h3>
+  <p>We aren't trying to get rich, the super low cost for posting is merely to support server and maintenance costs. Support us into making our platform thrive.</p>
+  <section class="columns is-multiline">
+    <%= render @last_3_ads %>
+  </section>
+</section>
+
+<section class="testimonials">
+  <h3 class="title">Testimonials</h3>
+  <p class="quote">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  <p class="author">&ndash; Jon Dope</p>
+  <p class="quote">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p class="author">&ndash; Jane Dope</p>
+  <p class="quote">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p class="author">&ndash; Jonny Doppy</p>
+</section>
+
+<section class="contact" id="contact">
+  <h3 class="title">Learn more</h3>
+  <p>Want to stay in touch and learn about our launch, live events, Facebook events, workshop, etc... let u know your email and we'll keep you in the loop</p>
+  <form action="">
+    <input type="email" placeholder="email@domain.com" required>
+    <button class="btn">subscribe now</button>
+    <!-- <a href="#" class="btn">subscribe now</a> -->
+  </form>
+</section>
+
+<footer>
+  <p>Images courtesy of <a href="https://unsplash.com/">Unsplash</a></p>
+  <p>&copy;2018 &ndash; Pixel-Depth Studio, LLC DBA Kitessifieds</p>
+  <ul>
+    <li><a href="#"><i class="fab fa-twitter-square fa-3x"></i></a></li>
+    <li><a href="#"><i class="fab fa-facebook-square fa-3x"></i></a></li>
+    <li><a href="#"><i class="fab fa-instagram fa-3x"></i></a></li>
+  </ul>
+</footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="js/script.js">
