@@ -1,4 +1,4 @@
-<section class="hero" id="hero">
+<div class="hero section" id="hero">
   <div class="background-image"></div>
   <div class="hero-content">
     <h1>Kitessifieds</h1>
@@ -6,10 +6,9 @@
     <%= link_to "Sign Up Now!", new_user_registration_path, class: 'signup-btn button is-link' %>
     <%# <a href="#contact" class="btn">Sign Up Now</a> %>
   </div>
-</section>
+</div>
 
-
-<section class="sample">
+<div class="sample section">
   <h3 class="title">What our platform is shaping to look like</h3>
   <div class="line"></div>
   <p><span>Nervous about a recent buy?</span><br>With user reviews, score and publix transaction history you can rest assured that half the homework is done for you.</p>
@@ -21,23 +20,24 @@
   <p><span>SEO Friendly</span><br>Every aspect of your post has been thought of carefully to maxime the likelyhood of a successful transaction.</p>
   <img src=<%= asset_path('300x450_placeholder.jpg')%> alt="">
   <p><span>And many more features</span><br>Have an idea for a feature? <%= link_to 'drop us a line'%></p>
-</section>
+</div>
 
-<section class="about" id="about">
+<div class="about section" id="about">
   <h3 class="title">What we're all about</h3>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</section>
+</div>
 
-<section class="latest_ads" id="latest_ads">
+<div class="latest_ads section columns is-multiline" id="latest_ads">
   <h3 class="title">Latest Ads</h3>
   <p>We aren't trying to get rich, the super low cost for posting is merely to support server and maintenance costs. Support us into making our platform thrive.</p>
-  <section class="columns is-multiline">
-    <%= render @last_3_ads %>
-  </section>
-</section>
+</div>
 
-<section class="testimonials">
+<div id="latest_3_ads">
+  <%= render @last_3_kites %>
+</div>
+
+<div class="testimonials section">
   <h3 class="title">Testimonials</h3>
   <p class="quote">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
   <p class="author">&ndash; Jon Dope</p>
@@ -45,9 +45,9 @@
   <p class="author">&ndash; Jane Dope</p>
   <p class="quote">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   <p class="author">&ndash; Jonny Doppy</p>
-</section>
+</div>
 
-<section class="contact" id="contact">
+<div class="contact section" id="contact">
   <h3 class="title">Learn more</h3>
   <p>Want to stay in touch and learn about our launch, live events, Facebook events, workshop, etc... let u know your email and we'll keep you in the loop</p>
   <form action="">
@@ -55,7 +55,7 @@
     <button class="btn">subscribe now</button>
     <!-- <a href="#" class="btn">subscribe now</a> -->
   </form>
-</section>
+</div>
 
 <footer>
   <p>Images courtesy of <a href="https://unsplash.com/">Unsplash</a></p>
@@ -67,5 +67,5 @@
   </ul>
 </footer>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="js/script.js">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/script.js">

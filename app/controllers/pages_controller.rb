@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def index
-    kites = Kite.all
-    @last_3_ads = kites.last(3)
+    all_kites = Kite.all
+    @last_3_kites = all_kites.last(3)
   end
 
   def contact

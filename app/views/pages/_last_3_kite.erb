@@ -1,0 +1,34 @@
+<div class="column is-3">
+  <div class="card">
+  
+    <div class="card-content top">
+      <h2 class='title'>
+        <%= link_to kite.year, kite_path(kite) %> 
+        <%= link_to kite.brand.brand_name, kite_path(kite) %>
+      </h2>
+      <h2 class='subtitle is-6 model'><a href="<%= url_for(kite) %>"><%= kite.kite_type.upcase %></a></h2>
+    </div>
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <%= link_to image_tag(kite.images.first), kite %>
+      </figure>
+    </div>
+
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-4">$<%= number_with_precision(kite.price, precision: 2) %></p>
+        </div>
+      </div>
+
+      <div class="content">
+        <span class='ad-listed'>Listed <%= time_ago_in_words(kite.created_at) %>
+        </span>
+        <br>
+        <% if user_signed_in? && kite.user_id == current_user.id %>
+          <%= link_to "Edit #{kite.classified_type}", edit_kite_path(kite) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
